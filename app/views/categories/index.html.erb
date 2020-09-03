@@ -1,0 +1,40 @@
+<div>
+<p class="subtitle is-size-3 has-text-centered has-text-light my-2">Categorias</p>
+
+</div>
+<div class="columns">
+    <div class="column is-10 is-offset-1">
+        <%= link_to "Agregar", new_category_path, remote: true, class: "button is-info is-outlined is-small mb-1 is-pulled-left"%>
+        <table class="table is-fullwidth">
+            <thead text>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categorias.each do |categoria|%>
+                <tr>
+                    <td><%= categoria.nombre %></td>
+                    <td><%= categoria.descripcion %></td>
+                    <td><i><%= link_to "", edit_category_path(categoria), remote: true, class: "fa fa-edit has-text-success"%></i></td>
+                    <td><i><%= link_to "", category_path(categoria), method: :delete, class: "fa fa-trash has-text-danger", data: {confirm: "¿Estás seguro de eliminar la categoria: #{categoria.nombre}?"}%></i></td>
+                <% end %>
+                </tr>
+            </tbody>
+        </table>
+    <%= will_paginate @categorias, renderer: BulmaPagination::Rails, :previous_label => t("anterior"), :next_label => t("siguiente"), class: 'is-rounded is-centered' %>   
+        <div class="modal" id="modal-cat">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <!--<header class="modal-card-head">
+                <p class="modal-card-title"></p>
+                <button class="delete" aria-label="close"></button>
+                </header>-->
+                <section class="modal-card-body">
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

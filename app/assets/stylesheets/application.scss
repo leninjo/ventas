@@ -1,0 +1,182 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bulma";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Ropa+Sans&display=swap');
+
+html{
+    height: 100vh;
+    background-color: #1f253d;
+}
+*{
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 17px !important;
+}
+ 
+/* GRID */
+.main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 0.13fr repeat(3, 0.5fr) 0.13fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+    
+.arriba { grid-area: 1 / 1 / 2 / 6; 
+          border-radius: 5px;
+          margin-left: 10px;
+          margin-top: 10px;
+          margin-bottom: 0px;
+          margin-right: 10px;
+          box-shadow: 0 10px 20px rgba(82, 68, 68, 0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+.izquierda { grid-area: 2 / 1 / 5 / 2;
+             background-color: #394264; 
+             border-radius: 5px;
+             margin-left: 10px;
+             margin-top: 10px;
+             margin-bottom: 5px;
+             margin-right: 10px;
+             padding: 5px;
+             height: 75vh;
+             box-shadow: 0 10px 20px rgba(82, 68, 68, 0.19), 0 6px 6px rgba(0,0,0,0.23);
+            }
+          
+.centro { grid-area: 2 / 2 / 5 / 6; 
+          background-color: lightgray;
+          border-radius: 5px;
+          margin-left: 0px;
+          margin-top: 10px;
+          margin-bottom: 5px;
+          margin-right: 10px;
+          background-color: #394264;
+          box-shadow: 0 10px 20px rgba(82, 68, 68, 0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+.abajo { grid-area: 5 / 1 / 6 / 6; 
+         border-radius: 5px;
+         margin-left: 10px;
+         margin-top: 5px;
+         margin-bottom: 5px;
+         margin-right: 10px;
+         box-shadow: 0 10px 20px rgba(82, 68, 68, 0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+/* GRID */ 
+
+/* ASIDE */
+.menu-list>li>a{
+    color: white !important;
+}
+.menu-list>li>ul>li>a{
+    color: white !important;
+}
+.menu-list>li>ul>li>a:hover{
+    background-color: #1f253d !important;
+}
+.menu-list>li>a:hover{
+    background-color: #1f253d !important;
+}
+.menu-label{
+    color: #AEB6BF !important;
+    font-size: 15px !important;
+}
+/* FIN ASIDE */ 
+
+/* NAVBAR */
+.navbar{
+    background-color: #394264 !important;
+}
+.navbar-dropdown{
+    border-top: 1px solid #dbdbdb !important;
+    border-bottom: 1px solid #dbdbdb !important;
+    border-left: 1px solid #dbdbdb !important;
+    border-right: 1px solid #dbdbdb !important;
+    border-radius: 5px !important;
+}
+.navbar-item{
+    color: white !important;
+}
+.navbar-item:hover{
+    background-color: #1f253d !important;
+    color: white !important;
+}
+.navbar-dropdown{
+    background-color: #394264 !important;
+}
+/* FIN NAVBAR*/ 
+
+.hero-body{
+    background: linear-gradient(to bottom, #59638a 0%, #1f253d 100%) !important;
+}
+
+.field-login{
+    padding: 10px;
+}
+
+.column{
+    border-radius: 5px;
+    text-align: center !important;
+}
+
+.titulo-login{
+    margin: 0px !important;
+    font-size: 20px !important;
+}
+
+hr{
+    margin: 10px !important;
+}
+
+.modal-card-head, .modal-card-body{
+    margin: 0 auto;
+    width: 500px !important;
+}
+
+.fa{
+    font-size: 25px !important;
+    vertical-align: middle !important;
+}
+
+table{
+    border-radius: 5px;
+}
+
+/* PAGINACION */
+
+li.pagination-link.is-current{
+    background-color: #D6DBDF !important;
+    color: black;
+    border: none;
+}
+a.pagination-link{
+    color: white !important;
+}
+li.pagination-link{
+    background-color: #D6DBDF !important;
+}
+li.pagination-next>a{
+    color: #2C3E50;
+}
+li.pagination-next{
+    background-color: #D6DBDF !important;
+}
+li.pagination-previous{
+    background-color: #D6DBDF !important;
+}
+li.pagination-previous >a{
+    color: #2C3E50;
+}

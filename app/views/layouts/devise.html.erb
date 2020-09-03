@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auth</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section class="hero is-medium is-dark is-bold is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+            <div class="columns is-centered" >
+                <div class="column is-5-tablet is-4-desktop is-3-widescreen has-background-white">
+                <%= yield %>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+  </body>
+</html>
