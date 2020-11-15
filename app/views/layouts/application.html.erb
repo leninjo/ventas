@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VENTAS</title>
+    <title>4sale</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,7 +18,9 @@
       <div class="centro">
         <%= yield %>
       </div>
-      <%= render 'layouts/footer'%>
+      <div class="abajo">
+        <%= render 'layouts/messages'%>
+      </div>
     </div>
   </body>
 </html>

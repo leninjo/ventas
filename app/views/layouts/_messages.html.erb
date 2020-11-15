@@ -1,0 +1,7 @@
+<div class="container-fluid alerta" id="alerta">
+    <% flash.each do |name, msg| %>
+      <div class="notification is-warning alerta-color" role="alert">
+          <%= msg %>   
+      </div>
+    <% end %>
+</div>

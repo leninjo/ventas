@@ -1,0 +1,43 @@
+<div>
+<p class="subtitle is-size-3 has-text-centered has-text-light my-2">Proveedores</p>
+</div>
+<div class="columns">
+    <div class="column is-10 is-offset-1">
+        <%= link_to new_supplier_path, {remote: true, class: "button mb-1 is-pulled-left btn-no-text"} do %>
+            <i class="fa fa-plus"></i>
+        <% end %>
+        <table class="table is-fullwidth">
+            <thead text>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @proveedores.each do |proveedor|%>
+                <tr>
+                    <td><%= proveedor.nombre %></td>
+                    <td><%= proveedor.direccion %></td>
+                    <td><%= proveedor.telefono %></td>
+                    <td><i><%= link_to "", edit_supplier_path(proveedor), remote: true, class: "fa fa-pencil has-text-success btn-action"%></i></td>
+                    <td><i><%= link_to "", supplier_path(proveedor), method: :delete, class: "fa fa-trash has-text-danger btn-action", data: {confirm: "¿Estás seguro de eliminar al proveedor: #{proveedor.nombre}?"}%></i></td>
+                <% end %>
+                </tr>
+            </tbody>
+        </table>
+    <%= will_paginate @proveedores, renderer: BulmaPagination::Rails, :previous_label => t("anterior"), :next_label => t("siguiente"), class: 'is-rounded is-centered' %>   
+        <div class="modal" id="modal-cat">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <!--<header class="modal-card-head">
+                <p class="modal-card-title"></p>
+                <button class="delete" aria-label="close"></button>
+                </header>-->
+                <section class="modal-card-body">
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

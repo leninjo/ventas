@@ -1,10 +1,12 @@
 <div>
-<p class="subtitle is-size-3 has-text-centered has-text-light my-2">Categorias</p>
+<p class="subtitle is-size-3 has-text-centered has-text-light my-2">Categorias de Productos</p>
 
 </div>
 <div class="columns">
     <div class="column is-10 is-offset-1">
-        <%= link_to "Agregar", new_category_path, remote: true, class: "button is-info is-outlined is-small mb-1 is-pulled-left"%>
+        <%= link_to new_category_path, {remote: true, class: "button mb-1 is-pulled-left btn-no-text"} do %>
+            <i class="fa fa-plus"></i>
+        <% end %>
         <table class="table is-fullwidth">
             <thead text>
                 <tr>
@@ -18,8 +20,8 @@
                 <tr>
                     <td><%= categoria.nombre %></td>
                     <td><%= categoria.descripcion %></td>
-                    <td><i><%= link_to "", edit_category_path(categoria), remote: true, class: "fa fa-edit has-text-success"%></i></td>
-                    <td><i><%= link_to "", category_path(categoria), method: :delete, class: "fa fa-trash has-text-danger", data: {confirm: "¿Estás seguro de eliminar la categoria: #{categoria.nombre}?"}%></i></td>
+                    <td><i><%= link_to "", edit_category_path(categoria), remote: true, class: "fa fa-pencil has-text-success btn-action-edit"%></i></td>
+                    <td><i><%= link_to "", category_path(categoria), method: :delete, class: "fa fa-trash has-text-danger btn-action-delete", data: {confirm: "¿Estás seguro de eliminar la categoria: #{categoria.nombre}?"}%></i></td>
                 <% end %>
                 </tr>
             </tbody>

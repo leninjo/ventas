@@ -1,0 +1,73 @@
+<div class="container has-text-centered my-3">
+  <h1 class="subtitle is-size-3 has-text-centered has-text-light my-1">Productos</h1>
+  <div class="container is-fluid">
+      <div class="field is-pulled-left">
+          <div class="field has-addons">
+              <div class="control">
+                <%= link_to "Agregar", new_product_path, {remote: true, class: "button is-info is-outlined"} %>
+              </div>
+
+              <div class="buttons has-addons">
+                <button class="button is-static">Stock: <%= @productos.count %></button>
+              </div>
+              
+          </div>
+      </div>
+      <div class="field is-pulled-right">
+          <%= form_tag products_path, method: :get do %>
+              <div class="field has-addons">
+                  <div class="control">
+                      <%= text_field_tag :search, params[:search], placeholder: "nombre", class: "input"%>
+                  </div>
+                  <div class="control">
+                      <%= submit_tag "Buscar", class: "button is-link"%>
+                      <%= link_to products_path, {class: "button is-danger is-outlined"} do %>
+                          <i class="fa fa-paint-brush"></i>
+                      <% end %>
+                  </div>
+              </div>
+          <% end %>
+      </div>
+  </div>
+  <br>
+  <br>
+  <div class="container is-fluid my-4">
+    <% if @productos.empty? %>
+        <p class="subtitle is-size-5 has-text-light my-5">No hay productos agregados :(</p>
+    <% else %>
+      <% @productos.each do |producto| %>
+      <div class="column card-model">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <% if producto.imagen.attached? %>
+                <img src="<%= url_for(producto.imagen) %>">
+              <% end %>
+            </figure>
+          </div>
+          <div class="card-content px-2 py-4 card-content-product">
+            <p class="title is-size-4 has-text-light mb-1"><%= producto.nombre %></p>
+            <p class="title is-size-5 has-text-light mb-1">Q. <%= producto.precio %></p>
+          <div class="buttons has-addons">
+            <%= link_to "Ver Producto", product_path(producto), class: "button is-primary is-fullwidth mx-5 my-1" %>
+          </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+    <%= will_paginate @productos, renderer: BulmaPagination::Rails, :previous_label => t("anterior"), :next_label => t("siguiente"), class: 'is-rounded is-centered my-2' %>   
+  </div>
+  <div class="modal" id="modal-cat">
+    <div class="modal-background"></div>
+      <div class="modal-card">
+                  <!--<header class="modal-card-head">
+                  <p class="modal-card-title"></p>
+                  <button class="delete" aria-label="close"></button>
+                  </header>-->
+      <section class="modal-card-body">
+      </section>
+    </div>
+  </div>
+</div>
+

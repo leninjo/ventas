@@ -1,0 +1,86 @@
+<p class="subtitle is-size-4"><%= @titulo %></p>
+<%= form_for @producto, {remote: true, multiple: true } do |f| %>
+
+<div class="file">
+    <label class="file-label">
+        <%= f.file_field :imagen, class: "file-input", type: "file"%>
+        <%# <input class="file-input" type="file" name="resume"> %>
+        <span class="file-cta">
+            <span class="file-icon">
+                <i class="fa fa-upload"></i>
+        </span>
+            <span class="file-label">
+                Cargar imagen…
+            </span>
+        </span>
+    </label>
+</div>
+
+
+<div class="field">
+    <label class="label">Nombre</label>
+    <div class="control">
+        <%= f.text_field :nombre, autofocus: true, class: "input", autocomplete: "nombre"%>
+    </div>
+</div>  
+
+<div class="field">
+    <label class="label">Marca</label>
+    <div class="control">
+        <%= f.text_field :marca, autofocus: true, class: "input", autocomplete: "marca"%>
+    </div>
+</div>  
+
+<div class="field">
+    <label class="label">Modelo</label>
+    <div class="control">
+        <%= f.text_field :modelo, autofocus: true, class: "input", autocomplete: "modelo"%>
+    </div>
+</div> 
+
+<div class="field is-grouped">
+    <div class="field">
+        <label class="label">Existencia</label>
+        <div class="control">
+            <%= f.number_field :existencia, autofocus: true, class: "input", autocomplete: "existencia"%>
+        </div>
+    </div> 
+
+    <div class="field">
+        <label class="label">Precio</label>
+        <div class="control">
+            <%= f.number_field :precio, autofocus: true, class: "input", autocomplete: "precio"%>
+        </div>
+    </div> 
+</div>
+
+<div class="field is-grouped mx-6">
+    <div clas="field my-1">
+        <label class="label">Categoria</label>
+        <div class="select">
+            <%= f.select :category_id,
+            options_from_collection_for_select(
+            @categorias, :id, :nombre, f.object.category_id), {:prompt => "Selecciona una"}, {class: "select"}%>
+        </div>
+    </div>         
+
+    <div class="field mx-1">
+        <label class="label">Proveedor</label>
+        <div class="select">
+            <%= f.select :supplier_id,
+            options_from_collection_for_select(
+            @proveedores, :id, :nombre, f.object.supplier_id), {:prompt => "Selecciona uno"}, {:class => "select"}%>
+        </div>
+    </div>
+</div>
+
+<hr >
+<div class="field is-grouped">
+    <div class="control">
+        <%= f.submit(@producto.new_record? ? "Crear" : "Actualizar", class: "button is-fullwidth is-info")%>
+    </div>
+    <div class="control is-fullwidth">
+        <%= link_to "Cancelar", products_path, class: "button is-danger is-light" %>
+    </div>
+</div>
+<% end %>

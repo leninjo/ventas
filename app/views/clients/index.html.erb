@@ -1,0 +1,49 @@
+<div>
+<p class="subtitle is-size-3 has-text-centered has-text-light my-2">Proveedores</p>
+</div>
+<div class="columns">
+    <div class="column is-10 is-offset-1">
+        <%= link_to new_client_path, {remote: true, class: "button mb-1 is-pulled-left btn-no-text"} do %>
+            <i class="fa fa-plus"></i>
+        <% end %>
+        <% if @clientes.empty? %>
+        <br>
+        <br>
+            <em class="subtitle is-size-4 has-text-centered has-text-light">No hay clientes</em>
+        <% else %>
+            <table class="table is-fullwidth">
+                <thead text>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Telefono</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @clientes.each do |cliente|%>
+                    <tr>
+                        <td><%= cliente.nombre %></td>
+                        <td><%= cliente.direccion %></td>
+                        <td><%= cliente.telefono %></td>
+                        <td><i><%= link_to "", edit_client_path(cliente), remote: true, class: "fa fa-pencil has-text-success btn-action"%></i></td>
+                        <td><i><%= link_to "", client_path(cliente), method: :delete, class: "fa fa-trash has-text-danger btn-action", data: {confirm: "¿Estás seguro de eliminar al cliente: #{cliente.nombre}?"}%></i></td>
+                    <% end %>
+                    </tr>
+                </tbody>
+            </table>
+        <% end %>
+    <%= will_paginate @clientes, renderer: BulmaPagination::Rails, :previous_label => t("anterior"), :next_label => t("siguiente"), class: 'is-rounded is-centered' %>   
+        <div class="modal" id="modal-cat">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <!--<header class="modal-card-head">
+                <p class="modal-card-title"></p>
+                <button class="delete" aria-label="close"></button>
+                </header>-->
+                <section class="modal-card-body">
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

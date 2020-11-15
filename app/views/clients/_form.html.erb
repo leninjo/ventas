@@ -1,0 +1,33 @@
+<p class="subtitle is-size-4"><%= @titulo %></p>
+<%= form_for @cliente do |f| %>
+<div class="field">
+    <label class="label">Nombre</label>
+    <div class="control">
+        <%= f.text_field :nombre, autofocus: true, class: "input", autocomplete: "nombre"%>
+    </div>
+</div> 
+
+<div class="field">
+    <label class="label">Dirección</label>
+    <div class="control">
+        <%= f.text_area :direccion, autofocus: true, class: "input", autocomplete: "direccion"%>
+    </div>
+</div>  
+
+<div class="field">
+    <label class="label">Telefono</label>
+    <div class="control">
+        <%= f.text_field :telefono, autofocus: true, class: "input", autocomplete: "telefono"%>
+    </div>
+</div> 
+
+<hr >
+<div class="field is-grouped">
+    <div class="control">
+        <%= f.submit(@cliente.new_record? ? "Crear" : "Actualizar", class: "button is-info")%>
+    </div>
+    <div class="control">
+        <%= link_to "Cancelar", clients_path, class: "button is-danger is-light" %>
+    </div>
+</div>
+<% end %>

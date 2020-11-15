@@ -3,18 +3,19 @@
     General
   </p>
   <ul class="menu-list">
-    <li><a>Tablero</a></li>
+    <li><%= link_to "Tablero", root_path %></li>
   </ul>
   <p class="menu-label">
     Administración
   </p>
   <ul class="menu-list">
-    <li><a>Productos</a>
+    <li><%= link_to 'Productos', products_path %>
       <ul>
         <li><%= link_to 'Categorias', categories_path %></li>
       </ul>
     </li>
-    <li><a>Clientes</a></li>
+    <li><%= link_to 'Clientes', clients_path %></li>
+    <li><%= link_to 'Proveedores', suppliers_path %></li>
   </ul>
   <p class="menu-label">
     Operaciones
